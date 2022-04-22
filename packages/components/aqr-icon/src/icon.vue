@@ -23,6 +23,7 @@ export default defineComponent({
   setup(props,{emit}) {
     //设置样式的根名称
     const cn = cssName("icon");
+    //得到默认尺寸
     const { size } = toRefs(props);
     const { color } = toRefs(props);
     const { iconStyle } = toRefs(props);
