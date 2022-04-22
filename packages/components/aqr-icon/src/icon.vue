@@ -21,6 +21,7 @@ export default defineComponent({
   emits: iconEmits,
 
   setup(props,{emit}) {
+    //设置样式的根名称
     const cn = cssName("icon");
     const { size } = toRefs(props);
     const { color } = toRefs(props);
