@@ -1,3 +1,2 @@
-import '@element-plus/components/base/style'
-import '@element-plus/theme-chalk/src/image.scss'
-import '@element-plus/components/image-viewer/style/index'
+//暂时没用到，目前通过根目录index.ts全局导入
+import "../../../theme-chalk/src/icon.scss"

@@ -4,6 +4,9 @@ import {App} from 'vue'
 import utils from './libs/utils'
 import store from './libs/store/store'
 
+//导入全局样式
+import "./packages/theme-chalk/src/index.scss"
+
 import aqr_icon from "./packages/components/aqr-icon"
 
 const api = {

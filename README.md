@@ -17,5 +17,4 @@ Vue.use(aqrUI)
 
 ## scss
 ```
-如果使用vite，需在根目录的package.json中 把"sass"放入"dependencies"
 ```

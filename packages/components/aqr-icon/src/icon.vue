@@ -1,6 +1,9 @@
 <template>
-  <i :class="[cn.b(), iconName, iconClass]" :style="style" v-bind="$attrs" 
-    >
+  <i
+    :class="[cn.b(), name, iconClass]"
+    :style="style"
+    v-bind="$attrs"
+  >
     <slot></slot>
   </i>
 </template>
@@ -9,8 +12,7 @@
 import { computed, toRefs, onMounted, ref, defineComponent } from "vue";
 import type { CSSProperties } from "vue";
 
-import { iconProps,iconEmits } from "./icon";
-
+import { iconProps, iconEmits } from "./icon";
 import { cssName } from "../../../../libs/hook";
 import { calculatorInject } from "../../../../libs/store/store";
 import { isUndefined, addUnit } from "../../../../libs/utils";
@@ -20,7 +22,7 @@ export default defineComponent({
   props: iconProps,
   emits: iconEmits,
 
-  setup(props,{emit}) {
+  setup(props, { emit }) {
     //设置样式的根名称
     const cn = cssName("icon");
     //得到默认尺寸
@@ -48,10 +50,3 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss">
-.aqr-icon {
-  width: 10px;
-  height: 10px;
-  color: var(--color);
-}
-</style>
