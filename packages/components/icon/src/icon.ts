@@ -1,4 +1,4 @@
-import { definePropType, buildProps } from '../../../../libs/utils/props'
+
 export const iconProps = {
     size: {
         type: [Number, String],

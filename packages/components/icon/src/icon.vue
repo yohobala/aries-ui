@@ -13,12 +13,12 @@ import { computed, toRefs, onMounted, ref, defineComponent } from "vue";
 import type { CSSProperties } from "vue";
 
 import { iconProps, iconEmits } from "./icon";
-import { cssName } from "../../../../libs/hook";
-import { calculatorInject } from "../../../../libs/store/store";
-import { isUndefined, addUnit } from "../../../../libs/utils";
+import { cssName,isUndefined,addUnit } from "../../../../libs";
+
+const COMPONENT_NAME = 'aqr-icon'
 
 export default defineComponent({
-  name: "aqr-icon",
+  name: COMPONENT_NAME,
   props: iconProps,
   emits: iconEmits,
 

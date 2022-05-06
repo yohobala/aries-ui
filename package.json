@@ -1,24 +1,19 @@
 {
-  "name": "aquarius-ui-vue",
+  "name": "aries-ui-vue",
   "version": "0.0.12",
+  "description": "A Component Library for Vue.js",
+  "main": "init/index.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "vue": "^3.0.4",
-    "sass": "^1.49.8",
-    "@vueuse/core": "^7.6.2"
-  },
-  "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.4",
-    "algoliasearch": "^3.24.5"
-  },
-  "description": "A Component Library for Vue.js.",
-  "main": "index.ts",
-  "directories": {
-    "lib": "lib"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yohobala/aries-ui-vue.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yohobala/aries-ui-vue/issues"
+  },
+  "homepage": "https://github.com/yohobala/aries-ui-vue#readme"
 }

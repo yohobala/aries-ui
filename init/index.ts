@@ -1,19 +1,14 @@
 
 import {App} from 'vue'
 
-import utils from './libs/utils'
-import store from './libs/store/store'
+import utils from '../libs/utils'
+import store from '../libs/store'
 
-//导入全局样式
-import "./packages/theme-chalk/src/index.scss"
-
-import aqr_icon from "./packages/components/aqr-icon"
+import components from "./components"
 
 const api = {
     utils : utils
 }
-
-const components = [aqr_icon]
 
 export default {
     install(app: App){

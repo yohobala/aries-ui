@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, toRefs, onMounted, ref, watch } from "vue";
-import { calculatorInject } from "../../libs/store/store";
+import { calculatorInject } from "../../libs/store";
 import { cssName } from "../../libs/hook";
 export default defineComponent({
   name: "aqr-icon",
