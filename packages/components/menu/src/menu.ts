@@ -1,18 +1,27 @@
-import { computed, toRefs, onMounted, ref, defineComponent, reactive, h } from "vue";
-import type {VNode} from "vue"
+import { ref, defineComponent, readonly, h, provide, ExtractPropTypes } from "vue";
+import type { VNode } from "vue"
+import { MenuProvide } from "./types";
 
 export const menuProps = {
-
+    mode: {
+        type: String,
+        values: ['horizontal', 'vertical'],
+        default: 'vertical'
+    },
+    defaultIndex:{
+        type: String,
+        default: ""
+    }
 } as const
-
+export type MenuProps = ExtractPropTypes<typeof menuProps>
 
 export const menuEmits = {
 
 }
 
 
-const COMPONENT_NAME = "aqr-menu";
-import { cssName, isUndefined} from "../../../../libs";
+const COMPONENT_NAME = "AriMenu";
+import { cssName, isUndefined } from "../../../../libs";
 
 export default defineComponent({
     name: COMPONENT_NAME,
@@ -20,17 +29,36 @@ export default defineComponent({
     emits: menuEmits,
 
     setup(props, { emit, slots }) {
-        //设置样式的根名称
+        //定义样式的根名称
         const cn = cssName("menu");
+        //定义了类型为HTMLUListElement的ref对象
+        const menu = ref<HTMLUListElement>()
+        //定义activeIndex 用于确定当前活动菜单项
+        const activeIndex = ref<MenuProvide['activeIndex']>(props.defaultIndex)
+        
 
-        const readersNumber = ref(0);
-        const book = reactive({ title: "Vue 3 Guide" });
+        //provide
+        provide<MenuProvide>("rootMenu", readonly({
+            props,
+            activeIndex
+        }))
 
         return () => {
+            //如果slots.default()有值则赋予slot
             let slot = slots.default?.() ?? []
             const vMoreSlots: VNode[] = []
+            if (props.mode === "horizontal" && menu.value) {
+                const items: HTMLElement[] = Array.from(menu.value?.childNodes ?? []).filter(
+                    (item) => item.nodeName !== '#text' || item.nodeValue
+                ) as HTMLElement[]
 
-            return h('ul', { class: "test" }, [...slot])
+                console.log(items)
+            }
+            return h('ul', {
+                class: {
+                    [cn.b()]: true,
+                }
+            }, [...slot])
         }
     },
 })

@@ -15,7 +15,7 @@ import type { CSSProperties } from "vue";
 import { iconProps, iconEmits } from "./icon";
 import { cssName,isUndefined,addUnit } from "../../../../libs";
 
-const COMPONENT_NAME = 'aqr-icon'
+const COMPONENT_NAME = 'AriIcon'
 
 export default defineComponent({
   name: COMPONENT_NAME,

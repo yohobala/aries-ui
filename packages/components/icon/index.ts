@@ -3,8 +3,8 @@ import icon from './src/icon.vue'
 
 import  {componentInstall}    from "../../../libs"
 
-export const AqrIcon =  componentInstall(icon)
+export const AriIcon =  componentInstall(icon)
 
-export default AqrIcon
+export default AriIcon
 
 export * from "./src/icon"
