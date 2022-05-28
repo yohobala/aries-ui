@@ -8,6 +8,7 @@
     - ts [install] componentInstall() 用于注册组件
     - ts [typescript] path:utils>vue type TypeComponentInstall 注册组件类型
     - ts [error] throwError 抛出错误
+    - ts
     - 组件 [menu]
     - 组件 [menu-item]
 
