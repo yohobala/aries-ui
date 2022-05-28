@@ -1,6 +1,6 @@
 {
   "name": "aries-ui-vue",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "A Component Library for Vue.js",
   "main": "init/index.ts",
   "scripts": {
