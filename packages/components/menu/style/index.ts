@@ -1,1 +1,1 @@
-import "../../../theme-chalk/src/menu.scss"
+import "aries-ui/packages/theme-chalk/src/menu.scss"

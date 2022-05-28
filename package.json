@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/yohobala/aries-ui-vue/issues"
   },
-  "homepage": "https://github.com/yohobala/aries-ui-vue#readme"
+  "homepage": "https://github.com/yohobala/aries-ui-vue#readme",
+  "dependencies": {
+    "@vueuse/core": "^8.5.0",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "sass": "^1.52.1"
+  }
 }

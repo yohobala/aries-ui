@@ -1,14 +1,11 @@
 
 import {App} from 'vue'
 
-import utils from '../libs/utils'
-import store from '../libs/store'
+
+import store from 'aries-ui/libs/store'
 
 import components from "./components"
 
-const api = {
-    utils : utils
-}
 
 export default {
     install(app: App){
@@ -21,7 +18,7 @@ export default {
         app.use(store)
 
         //全局变量
-        app.config.globalProperties.aqrui = api
+        // app.config.globalProperties.aqrui = api
         //测试
     }
 }

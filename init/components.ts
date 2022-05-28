@@ -1,5 +1,5 @@
-import ari_icon from "../packages/components/icon"
-import ari_menu from "../packages/components/menu"
+import ari_icon from "aries-ui/packages/components/icon"
+import ari_menu from "aries-ui/packages/components/menu"
 
 
 export default [

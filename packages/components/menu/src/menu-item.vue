@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
 import { computed, toRefs, onMounted, ref,inject,defineComponent, getCurrentInstance } from "vue";
-import { cssName, isUndefined,throwError} from "../../../../libs";
+import { cssName, isUndefined,throwError} from "aries-ui/libs";
 import {menuItemProps} from "./menu-item"
 import {MenuProvide} from "./types"
 

@@ -1,7 +1,7 @@
 import {App} from 'vue'
 import icon from './src/icon.vue'
 
-import  {componentInstall}    from "../../../libs"
+import  {componentInstall}    from "aries-ui/libs"
 
 export const AriIcon =  componentInstall(icon)
 

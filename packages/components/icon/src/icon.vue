@@ -13,7 +13,7 @@ import { computed, toRefs, onMounted, ref, defineComponent } from "vue";
 import type { CSSProperties } from "vue";
 
 import { iconProps, iconEmits } from "./icon";
-import { cssName,isUndefined,addUnit } from "../../../../libs";
+import { cssName,isUndefined,addUnit } from "aries-ui/libs";
 
 const COMPONENT_NAME = 'AriIcon'
 
