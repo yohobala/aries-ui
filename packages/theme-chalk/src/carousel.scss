@@ -93,13 +93,8 @@
         }
     }
     @include e(indicator) {
-        // border-radius: 100%;
         cursor: pointer;
-        display: inline-block;
-
-        // background-color: #b3b3b3;
-        // opacity: 0.3;
-        // transition: opacity 0.2s, background-color 0.2s;
+        background-color: transparent;
 
         &:not(:last-child) {
             margin-right: 6px;
