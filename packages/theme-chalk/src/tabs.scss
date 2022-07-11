@@ -1,0 +1,59 @@
+@use "sass:map";
+@use "mixins/mixins" as *;
+@use "common/var" as *;
+@use "mixins/var" as *;
+
+@include b(tabs) {
+    @include set-css-var-value("tabs-height", "30px");
+}
+@include b(tabs) {
+    height: getCssVar("tabs-height");
+    overflow-x: hidden;
+    @include e(wrapper) {
+        height: 100%;
+    }
+
+    @include e(scroll) {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        overflow-x: auto;
+        position: relative;
+
+    }
+}
+@include b(tabs-bar) {
+    height: 0.1px;
+    width: 100%;
+    background-color: rgba(15, 128, 255);
+    margin-top: 1px;
+    margin-bottom: 1px;
+    height: 1px;
+
+    position: absolute;
+    bottom: 0;
+
+    transition: transform getCssVar("transition-duration") cubic-bezier(.645, .045, .355, 1);
+
+}
+
+@include b(tabs-item) {
+    transition: color getCssVar("transition-duration");
+    font-size: getCssVar("font-size-base");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: getCssVar("tabs-height");
+
+    color: getCssVar("text-color-regular");
+    @include when(active) {
+        color: getCssVar("text-color-click");
+    }
+
+    @include when(disabled) {
+        opacity: 0.25;
+        cursor: not-allowed;
+        background: none !important;
+      }
+}

@@ -1,0 +1,7 @@
+@use "sass:map";
+@use "mixins/mixins" as *;
+@use "common/var" as *;
+@use "mixins/var" as *;
+
+@include b(scroll){
+}

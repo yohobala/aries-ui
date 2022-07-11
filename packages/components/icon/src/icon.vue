@@ -29,7 +29,6 @@ export default defineComponent({
     const { size } = toRefs(props);
     const { color } = toRefs(props);
     const { iconStyle } = toRefs(props);
-    console.log(size.value, color.value, iconStyle.value);
     const style = computed<CSSProperties>(() => {
       if (!size.value && !color.value && !iconStyle.value) return {};
 
@@ -50,3 +49,5 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss" scoped src='./font/iconfont.css'>
+</style>

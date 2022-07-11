@@ -10,7 +10,6 @@ type Calculator = {
 const CalculatorSymbol = Symbol();
 
 function calculatorProvide(app){
-    console.log("")
     //数目
     const count = ref<number>(1);
     //递增方法

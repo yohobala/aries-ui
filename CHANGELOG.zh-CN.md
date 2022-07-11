@@ -1,7 +1,17 @@
 ##更新日志
+### 0.0.14
+
+*2022-07-11
+#### 新建
+    - 组件 [tabs]
+    - 组件 [tabs-item]
+    - 组件 [scroll]
+    - 组件 [carousel]
+    - 组件 [carousel-item]
+
 ### 0.0.13
 
-*2022-05-
+*2022-05-28
 #### 新建
     - ts [compute]  addUnit(): 用于计算单位，把数值型变为字符串型，如12 -> 12px
     - ts [type] 1.sUndefined(): 是否为underfined (2) isEmpty(): 是否为空

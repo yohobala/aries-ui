@@ -1,6 +1,6 @@
+@use './base.scss';
 @use './src/icon.scss';
 @use './src/menu.scss';
-
-.bx{
-    color: rgb(247, 0, 0);
-}
+@use './src/tabs.scss';
+@use './src/carousel.scss';
+@use "./src/scroll.scss";

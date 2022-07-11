@@ -1,6 +1,10 @@
-import { ref, defineComponent, readonly, h, provide, ExtractPropTypes } from "vue";
+import { ref, defineComponent, readonly, h, provide, ExtractPropTypes, reactive } from "vue";
 import type { VNode } from "vue"
 import { MenuProvide } from "./types";
+
+import { cssName, isUndefined } from "aries-ui/libs";
+
+const COMPONENT_NAME = "AriMenu";
 
 export const menuProps = {
     mode: {
@@ -16,12 +20,12 @@ export const menuProps = {
 export type MenuProps = ExtractPropTypes<typeof menuProps>
 
 export const menuEmits = {
-
+    
 }
 
 
-const COMPONENT_NAME = "AriMenu";
-import { cssName, isUndefined } from "../../../../libs";
+
+
 
 export default defineComponent({
     name: COMPONENT_NAME,
@@ -38,7 +42,7 @@ export default defineComponent({
         
 
         //provide
-        provide<MenuProvide>("rootMenu", readonly({
+        provide<MenuProvide>("rootMenu", reactive({
             props,
             activeIndex
         }))
@@ -58,7 +62,7 @@ export default defineComponent({
                 class: {
                     [cn.b()]: true,
                 }
-            }, [...slot])
+            }, [...slot,...vMoreSlots])
         }
     },
 })
