@@ -1,4 +1,10 @@
 ##更新日志
+### 0.0.16
+
+*2022-7-12
+
+#### 修复
+    - 组件[carousel] 1.修复了vertical方向下,indicator-type为circle时的显示问题 2修复了vertical方向下,indicators排列问题
 ### 0.0.15
 
 *2022-7-11

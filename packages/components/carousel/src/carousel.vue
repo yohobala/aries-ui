@@ -179,7 +179,6 @@ export default defineComponent({
       });
     };
     const addItem = (item: CarouselItemContext) => {
-      console.log(item);
       items.push(item);
     };
 
@@ -205,14 +204,11 @@ export default defineComponent({
     };
 
     function toRight(e) {
-      console.log(e);
     }
     /*--- watch ---  */
     watch(
       () => activeIndex.value,
       (current, prev) => {
-        console.log(current);
-        console.log(prev);
         resetItem(prev);
         if (prev > -1) {
           emit("change", current, prev);
@@ -235,11 +231,9 @@ export default defineComponent({
     const resizeObserver = shallowRef<ReturnType<typeof useResizeObserver>>();
     // lifecycle
     onMounted(async () => {
-      console.log(root);
       resizeObserver.value = useResizeObserver(root.value, () => {
         resetItem();
       });
-      console.log(root);
       if (props.initialIndex < items.length && props.initialIndex >= 0) {
         activeIndex.value = props.initialIndex;
       }
