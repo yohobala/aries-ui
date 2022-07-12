@@ -65,7 +65,6 @@ export default defineComponent({
       if(isShowcase){
          padding = `0px ${showcaseInterval.value}px`
       }
-      console.log(transform);
       return {
         transform,
         padding
@@ -159,13 +158,9 @@ export default defineComponent({
       return distance * (index - activeIndex);
     };
     const calcShowcaseTranslate = (index: number, activeIndex: number) => {
-      console.log(itemRef);
       const refEL = itemRef.value;
-      console.log(refEL?.offsetWidth);
-      console.log(refEL?.offsetHeight);
       if (!refEL) return 0;
       const distance = refEL.offsetWidth || 0;
-      console.log(distance);
       return distance * (index - activeIndex);
     };
     const calcCardTranslate = (index: number, activeIndex: number) => {
@@ -182,7 +177,6 @@ export default defineComponent({
     };
     // lifecycle
     onMounted(() => {
-      console.log(props);
       rootCarousel.addItem(<CarouselItemContext>{
         props,
         translateItem,

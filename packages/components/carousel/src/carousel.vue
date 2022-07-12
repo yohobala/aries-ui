@@ -114,7 +114,6 @@ export default defineComponent({
     /*--- computed ---  */
     const hasLabel = computed(() => {
       return items.some((item) => {
-        console.log(item.props);
         return item.props.label.toString().length > 0;
       });
     });
@@ -131,12 +130,10 @@ export default defineComponent({
       if (props.pauseOnHover) {
         pauseTimer();
       }
-      console.log("over");
     };
     const mouseLeave = () => {
       hover.value = false;
       startTimer();
-      console.log("leave");
     };
     const pauseTimer = () => {
       if (timer.value) {
