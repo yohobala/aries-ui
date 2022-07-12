@@ -142,7 +142,7 @@ export default defineComponent({
       }
     };
     const startTimer = () => {
-      if (props.intervalTime <= 0 || !props.autoPlay || timer.value) return;
+      if (props.intervalTime <= 0 || !props.autoplay || timer.value) return;
       timer.value = setInterval(() => play(), props.intervalTime);
     };
     const play = () => {

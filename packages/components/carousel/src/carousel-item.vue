@@ -64,7 +64,6 @@ export default defineComponent({
       if(isShowcase.value){
          padding = `0px ${showcaseInterval.value}px`
       }
-      console.log(padding)
       return {
         transform,
         padding
