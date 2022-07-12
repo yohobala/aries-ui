@@ -60,11 +60,11 @@ export default defineComponent({
       //scale(1)
       const _scale = `scale(${unref(scale)})`;
       const transform = [_translate, _scale].join(" ");
-
       let padding = ""
-      if(isShowcase){
+      if(isShowcase.value){
          padding = `0px ${showcaseInterval.value}px`
       }
+      console.log(padding)
       return {
         transform,
         padding

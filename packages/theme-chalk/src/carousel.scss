@@ -103,16 +103,6 @@
             margin-right: 6px;
         }
 
-        @include m(circle) {
-            overflow: hidden;
-            padding: getCssVar("carousel-indicator-padding-vertical") getCssVar("carousel-indicator-padding-horizontal");
-            button {
-                width: getCssVar("carousel-indicator-circle-radius");
-                height: getCssVar("carousel-indicator-circle-radius");
-                border-radius: 50%;
-            }
-        }
-
         @include m(horizontal) {
             display: inline-block;
             padding: getCssVar("carousel-indicator-padding-vertical") getCssVar("carousel-indicator-padding-horizontal");
@@ -126,6 +116,16 @@
             }
         }
 
+
+        @include m(circle) {
+            overflow: hidden;
+            padding: getCssVar("carousel-indicator-padding-vertical") getCssVar("carousel-indicator-padding-horizontal");
+            button {
+                width: getCssVar("carousel-indicator-circle-radius");
+                height: getCssVar("carousel-indicator-circle-radius");
+                border-radius: 50%;
+            }
+        }
         @include when(indicator-active) {
             button {
                 opacity: 1;

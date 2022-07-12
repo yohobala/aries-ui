@@ -55,8 +55,8 @@
           v-for="(item, index) in items"
           :key="index"
           :class="[cnIndicators.e('indicator'),
-                  {[cnIndicators.em('indicator', direction)]: indicatorType != 'circle'},
                   cnIndicators.em('indicator', indicatorType),
+                  cnIndicators.em('indicator', direction),
                   cnIndicators.is('indicator-active', index === activeIndex)]"
           @click.stop="indicatorClick(index)"
           @mouseenter="indicatorHover(index)"
