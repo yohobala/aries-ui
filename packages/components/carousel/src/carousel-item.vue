@@ -1,8 +1,9 @@
 <template>
   <div
     ref="itemRef"
-    :class="[cn.b(),cn.is('active',active),cn.is('in-stage'),cn.is('hover',hover),cn.is('animating',animating),{[cn.m('card')]:isCardType},{[cn.m('showcase')]:isShowcase}]"
-    :style="itemStyle"
+    :role="COMPONENT_NAME"
+    :class="[cn.b(),cn.is('active',active),cn.is('in-stage'),cn.is('hover',hover),cn.is('animating',animating),{[cn.m('card')]:isCardType},{[cn.m('showcase')]:isShowcase},...carouselItemClass]"
+    :style="{...itemStyle,...carouselItemStyle}"
   >
     <slot></slot>
   </div>
@@ -184,6 +185,7 @@ export default defineComponent({
 
     return {
       /*--- 变量 --- */
+      COMPONENT_NAME,
       cn,
       active,
       hover,

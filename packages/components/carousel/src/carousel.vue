@@ -1,13 +1,18 @@
 <template>
   <div
     ref="root"
-    :class="[cn.b(),cn.m(direction)]"
+    :class="[cn.b(),cn.m(direction),...carouselClass]"
+    :style="carouselStyle"
     :role="COMPONENT_NAME"
     @mouseenter.stop="mouseEnter"
     @mouseleave.stop="mouseLeave"
   >
     <ari-scroll :class="[cn.e('scroll')]">
-      <div :class="[cn.e('container')]">
+      <div
+        :class="[cn.e('container'),...containerClass]"
+        :style="containerStyle"
+        :role="COMPONENT_NAME + 'Container'"
+      >
         <transition
           v-if="arrowDisplay"
           name="carousel-arrow-left"
@@ -45,19 +50,25 @@
         <slot></slot>
       </div>
       <ul
+        :role="COMPONENT_NAME + 'Indicators'"
         v-if="indicatorPosition != 'none'"
         :class="[cnIndicators.b(),
                 cnIndicators.m(direction),
                 {[cnIndicators.m('outside')] : indicatorPosition === 'outside' ||  isCardType},
-                {[cnIndicators.m('outside-circle')] : (indicatorPosition === 'outside' ||  isCardType) && indicatorType === 'circle'}]"
+                {[cnIndicators.m('outside-circle')] : (indicatorPosition === 'outside' ||  isCardType) && indicatorType === 'circle'},
+                ...indicatorsClass
+                ]"
+        :style="indicatorsStyle"
       >
         <li
+          :role="COMPONENT_NAME + 'Indicator'"
           v-for="(item, index) in items"
           :key="index"
           :class="[cnIndicators.e('indicator'),
                   cnIndicators.em('indicator', indicatorType),
                   cnIndicators.em('indicator', direction),
-                  cnIndicators.is('indicator-active', index === activeIndex)]"
+                  cnIndicators.is('indicator-active', index === activeIndex),...indicatorClass]"
+          :style="indicatorStyle"
           @click.stop="indicatorClick(index)"
           @mouseenter="indicatorHover(index)"
         >
@@ -118,7 +129,7 @@ export default defineComponent({
       });
     });
     const isCardType = computed(() => props.type === "card");
-    const isShowcase = computed(() => props.type === 'showcase')
+    const isShowcase = computed(() => props.type === "showcase");
     const isVertical = computed(() => props.direction === "vertical");
     const arrowDisplay = computed(
       () => props.arrow !== "none" && !unref(isVertical)
@@ -200,8 +211,7 @@ export default defineComponent({
       setActiveItem(index);
     };
 
-    function toRight(e) {
-    }
+    function toRight(e) {}
     /*--- watch ---  */
     watch(
       () => activeIndex.value,

@@ -1,52 +1,49 @@
 import { PropType } from "vue"
 
-export const _tabsProps = {
-    tabsClass: {
+export const _carouselProps = {
+    carouselClass: {
         type: Array as PropType<string[]>,
         default: function () {
             return []
         }
     },
-    tabsStyle: {
+    carouselStyle: {
         type: Object as PropType<{ [key: string]: string }>,
         default: function () {
             return {}
         }
     },
-    wrapperClass: {
+    containerClass: {
         type: Array as PropType<string[]>,
         default: function () {
             return []
         }
     },
-    wrapperStyle: {
+    containerStyle: {
         type: Object as PropType<{ [key: string]: string }>,
         default: function () {
             return {}
         }
     },
-    barClass: {
+    indicatorsClass: {
         type: Array as PropType<string[]>,
         default: function () {
             return []
         }
     },
-    barStyle: {
+    indicatorsStyle: {
         type: Object as PropType<{ [key: string]: string }>,
         default: function () {
             return {}
         }
-    }
-}
-
-export const _barProps = {
-    barClass: {
+    },
+    indicatorClass: {
         type: Array as PropType<string[]>,
         default: function () {
             return []
         }
     },
-    barStyle: {
+    indicatorStyle: {
         type: Object as PropType<{ [key: string]: string }>,
         default: function () {
             return {}
@@ -54,29 +51,18 @@ export const _barProps = {
     },
 }
 
-export const _itemProps = {
-    itemClass: {
+
+export const _carouselItemProps = {
+    carouselItemClass: {
         type: Array as PropType<string[]>,
         default: function () {
             return []
         }
     },
-    itemStyle: {
+    carouselItemStyle: {
         type: Object as PropType<{ [key: string]: string }>,
         default: function () {
             return {}
         }
     },
-    itemActiveClass: {
-        type: Array as PropType<string[]>,
-        default: function () {
-            return []
-        }
-    },
-    itemActiveStyle: {
-        type: Object as PropType<{ [key: string]: string }>,
-        default: function () {
-            return {}
-        }
-    }
 }
