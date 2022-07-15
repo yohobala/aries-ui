@@ -22,3 +22,5 @@ export default {
         //测试
     }
 }
+
+export {AriToast} from "aries-ui/packages/components/toast"

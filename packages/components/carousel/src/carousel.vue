@@ -54,9 +54,9 @@
         v-if="indicatorPosition != 'none'"
         :class="[cnIndicators.b(),
                 cnIndicators.m(direction),
-                {[cnIndicators.m('outside')] : indicatorPosition === 'outside' ||  isCardType},
-                {[cnIndicators.m('outside-circle')] : (indicatorPosition === 'outside' ||  isCardType) && indicatorType === 'circle'},
-                ...indicatorsClass
+                ...indicatorsClass,
+                {[cnIndicators.m('outside')] : indicatorPosition == 'outside' ||  isCardType,
+                [cnIndicators.m('outside-circle')] : (indicatorPosition == 'outside' ||  isCardType) && indicatorType === 'circle'},
                 ]"
         :style="indicatorsStyle"
       >

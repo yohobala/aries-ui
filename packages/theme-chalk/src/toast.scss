@@ -1,0 +1,142 @@
+@use "sass:map";
+@use "mixins/mixins" as *;
+@use "common/var" as *;
+@use "mixins/var" as *;
+@use "mixins/utils" as *;
+
+@include b(toast) {
+  z-index: 9999;
+  position: fixed;
+  min-height: 24px;
+  width: auto;
+  border-radius: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  @include e(icon-container) {
+    position: relative;
+    width: 2rem;
+    min-height: 2rem;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon{
+      font-size: 1rem;
+      color: rgba(102, 102, 102, 1);
+    }
+    @include m(act) {
+      width: 1rem;
+      height: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      vertical-align: middle;
+  
+      -webkit-transition-property: -webkit-transform;
+      -webkit-transition-duration: 1s;
+      -moz-transition-property: -moz-transform;
+      -moz-transition-duration: 1s;
+  
+      -webkit-animation: rotate 2s linear infinite;
+      -moz-animation: rotate 2s linear infinite;
+      -o-animation: rotate 2s linear infinite;
+      animation: rotate 2s linear infinite;
+    }
+  
+    @include m(clam) {
+      width: 1rem;
+      height: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+    }
+  }
+
+  @include b(toast-content) {
+    width: auto;
+    min-width: 10rem;
+    min-height: 2rem;
+    float: left;
+    margin-right: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include e(text) {
+      white-space: pre-wrap;
+      justify-content: center;
+      color: rgba(102, 102, 102, 1);
+      font-size: 12px;
+    }
+  }
+
+
+
+
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate {
+  from {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.toast-warning {
+  background-color: var(--el-color-warning-light-9);
+}
+.icon-warning {
+  color: var(--el-color-warning);
+}
+.text-warning {
+  color: var(--el-color-warning);
+}
+
+.toast-success {
+  background-color: var(--el-color-success-light-9);
+}
+.icon-success {
+  color: var(--el-color-success);
+}
+.text-success {
+  color: var(--el-color-success);
+}

@@ -25,7 +25,7 @@ export const iconProps = {
     iconStyle: {
         type: Object,
         default: function(){
-            return {fontSize: "12px"}
+            return {}
         }
     },
 } as const
