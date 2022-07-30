@@ -2,8 +2,7 @@ import { ref, defineComponent, readonly, h, provide, ExtractPropTypes, reactive 
 import type { VNode } from "vue"
 import { MenuProvide } from "./types";
 
-import { cssName, isUndefined } from "aries-ui/libs";
-
+import { useCss} from "../../../libs/hooks";
 const COMPONENT_NAME = "AriMenu";
 
 export const menuProps = {
@@ -34,7 +33,7 @@ export default defineComponent({
 
     setup(props, { emit, slots }) {
         //定义样式的根名称
-        const cn = cssName("menu");
+        const cn = useCss("menu");
         //定义了类型为HTMLUListElement的ref对象
         const menu = ref<HTMLUListElement>()
         //定义activeIndex 用于确定当前活动菜单项

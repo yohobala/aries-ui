@@ -2,14 +2,14 @@
 export const iconProps = {
     size: {
         type: [Number, String],
-        default: 10
+        default: 0
     },
     color: {
         type: String,
         default: "#FFFFFF"
     },
     //图标
-    name: {
+    iconName: {
         type: [String, Array],
         default: function () {
             return ""
@@ -28,7 +28,7 @@ export const iconProps = {
             return {}
         }
     },
-} as const
+}
 
 
 export const iconEmits = {

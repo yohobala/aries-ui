@@ -1,0 +1,47 @@
+@use "sass:map";
+@use "mixins/mixins" as *;
+@use "common/var" as *;
+@use "mixins/var" as *;
+@use "mixins/utils" as *;
+
+@include b(drop) {
+    width: 200px;
+    height: 400px;
+    @include when(horizontal) {
+        padding: 5px;
+        display: flex;
+    }
+}
+
+@include b(drop-item) {
+
+    transition: transform 0.25s linear;
+    background-color: getCssVar("color","white");
+    &:last-child{
+        border: none;
+    }
+    @include e(blank) {
+        background-color: aqua;
+        opacity: 0;
+    }
+
+    @include when(active) {
+        cursor: pointer;
+        float: none;
+        position: absolute;
+        z-index: getCssVar("index", "popper");
+        box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+        transition: none;
+    }
+    @include m(horizontal) {
+        // display: block;
+
+        width: 40px;
+    }
+    @include m(vertical) {
+        height: 40px;
+    }
+    @include when(move) {
+        user-select:none
+    }
+}

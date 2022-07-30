@@ -7,55 +7,45 @@ $types: primary, success, warning, danger, error, info;
 $colors: () !default;
 $colors: map.deep-merge(
   (
-    'white': #ffffff,
-    'black': #000000,
-    'primary': (
-      'base': #409eff,
+    "white": #ffffff,
+    "black": #000000,
+    "primary": (
+      "base": #409eff,
     ),
-    'success': (
-      'base': #67c23a,
+    "success": (
+      "base": #67c23a,
     ),
-    'warning': (
-      'base': #e6a23c,
+    "warning": (
+      "base": #e6a23c,
     ),
-    'danger': (
-      'base': #f56c6c,
+    "danger": (
+      "base": #f56c6c,
     ),
-    'error': (
-      'base': #f56c6c,
+    "error": (
+      "base": #f56c6c,
     ),
-    'info': (
-      'base': #909399,
+    "info": (
+      "base": #909399,
     ),
   ),
   $colors
 );
 
-$color-white: map.get($colors, 'white') !default;
-$color-black: map.get($colors, 'black') !default;
-$color-primary: map.get($colors, 'primary', 'base') !default;
-$color-success: map.get($colors, 'success', 'base') !default;
-$color-warning: map.get($colors, 'warning', 'base') !default;
-$color-danger: map.get($colors, 'danger', 'base') !default;
-$color-error: map.get($colors, 'error', 'base') !default;
-$color-info: map.get($colors, 'info', 'base') !default;
+$color-white: map.get($colors, "white") !default;
+$color-black: map.get($colors, "black") !default;
+$color-primary: map.get($colors, "primary", "base") !default;
+$color-success: map.get($colors, "success", "base") !default;
+$color-warning: map.get($colors, "warning", "base") !default;
+$color-danger: map.get($colors, "danger", "base") !default;
+$color-error: map.get($colors, "error", "base") !default;
+$color-info: map.get($colors, "info", "base") !default;
 // https://sass-lang.com/documentation/values/maps#immutability
 // mix colors with white/black to generate light/dark level
-@mixin set-color-mix-level(
-  $type,
-  $number,
-  $mode: 'light',
-  $mix-color: $color-white
-) {
+@mixin set-color-mix-level($type, $number, $mode: "light", $mix-color: $color-white) {
   $colors: map.deep-merge(
     (
       $type: (
-        '#{$mode}-#{$number}':
-          mix(
-            $mix-color,
-            map.get($colors, $type, 'base'),
-            math.percentage(math.div($number, 10))
-          ),
+        "#{$mode}-#{$number}": mix($mix-color, map.get($colors, $type, "base"), math.percentage(math.div($number, 10))),
       ),
     ),
     $colors
@@ -74,15 +64,76 @@ $color-info: map.get($colors, 'info', 'base') !default;
 // 90% ecf5ff
 @each $type in $types {
   @for $i from 1 through 9 {
-    @include set-color-mix-level($type, $i, 'light', $color-white);
+    @include set-color-mix-level($type, $i, "light", $color-white);
   }
 }
 
 // --el-color-primary-dark-2
 @each $type in $types {
-  @include set-color-mix-level($type, 2, 'dark', $color-black);
+  @for $i from 1 through 9 {
+    @include set-color-mix-level($type, $i, "dark", $color-black);
+  }
+  // @include set-color-mix-level($type, 2, 'dark', $color-black);
 }
 
+$border-radius: () !default;
+$border-radius: map.merge(
+  (
+    "small": 5px,
+    "base": 10px,
+    "round": 20px,
+    "large-round": 34px,
+    "ellipse": 980px,
+    "circle": 100%,
+  ),
+  $border-radius
+);
+
+$border-color: () !default;
+$border-color: map.merge(
+  (
+    "": #dcdfe6,
+    "light": #e4e7ed,
+    "lighter": #ebeef5,
+    "extra-light": #f2f6fc,
+    "dark": #d4d7de,
+    "darker": #cdd0d6,
+  ),
+  $border-color
+);
+
+// Background
+$bg-color: () !default;
+$bg-color: map.merge(
+  (
+    '': #ffffff,
+    'page': #ffffff,
+    'overlay': #ffffff,
+  ),
+  $bg-color
+);
+// Box-shadow
+$box-shadow: () !default;
+$box-shadow: map.merge(
+  (
+    "": (
+      0px 12px 32px 4px rgba(0, 0, 0, 0.04),
+      0px 8px 20px rgba(0, 0, 0, 0.08),
+    ),
+    "light": (
+      0px 0px 12px rgba(0, 0, 0, 0.12),
+    ),
+    "lighter": (
+      0px 0px 6px rgba(0, 0, 0, 0.12),
+    ),
+    "dark": (
+      0px 16px 48px 16px rgba(0, 0, 0, 0.08),
+      0px 12px 32px rgba(0, 0, 0, 0.12),
+      0px 8px 16px -8px rgba(0, 0, 0, 0.16),
+    ),
+  ),
+  $box-shadow
+);
 // zIndex
 $z-index: () !default;
 $z-index: map.merge(
@@ -130,8 +181,9 @@ $font-size: map.merge(
 $transition-duration: () !default;
 $transition-duration: map.merge(
   (
-    "": 0.5s,
-    "fase": 0.2s,
+    "": 0.25s,
+    "fast": 0.15s,
+    "slow": 0.5s,
   ),
   $transition-duration
 );
@@ -139,16 +191,87 @@ $transition-duration: map.merge(
 $carousel: () !default;
 $carousel: map.merge(
   (
-    'arrow-font-size': 14px,
-    'arrow-size': 36px,
-    'arrow-background': rgba(31, 45, 61, 0.11),
-    'arrow-hover-background': rgba(31, 45, 61, 0.23),
-    'indicator-width': 30px,
-    'indicator-height': 2px,
-    'indicator-circle-radius': 8px,
-    'indicator-padding-horizontal': 4px,
-    'indicator-padding-vertical': 12px,
-    'indicator-out-color': getCssVar('color-info-light-5'),
+    "arrow-font-size": 14px,
+    "arrow-size": 36px,
+    "arrow-background": rgba(31, 45, 61, 0.11),
+    "arrow-hover-background": rgba(31, 45, 61, 0.23),
+    "indicator-width": 30px,
+    "indicator-height": 2px,
+    "indicator-circle-radius": 8px,
+    "indicator-padding-horizontal": 4px,
+    "indicator-padding-vertical": 12px,
+    "indicator-out-color": getCssVar("color-info-light-5"),
   ),
   $carousel
+);
+
+$windows: () !default;
+$windows: map.merge(
+  (
+    "top": 10px,
+    "bottom": 10px,
+    "left": 10px,
+    "right": 10px,
+  ),
+  $windows
+);
+
+$leaflet: () !default;
+$leaflet: map.merge(
+  (
+    "rotate": rotate(0deg),
+  ),
+  $leaflet
+);
+
+// Slider
+// css3 var in packages/theme-chalk/src/slider.scss
+$slider: () !default;
+$slider: map.merge(
+  (
+    "main-bg-color": getCssVar("color-primary"),
+    "runway-bg-color": getCssVar("border-color-light"),
+    "stop-bg-color": getCssVar("color-white"),
+    "disabled-color": getCssVar("text-color-placeholder"),
+    "border-radius": 3px,
+    "height": 4px,
+    "button-size": 16px,
+    "button-wrapper-size": 36px,
+    "button-wrapper-offset": -16px,
+  ),
+  $slider
+);
+
+$switch: () !default;
+$switch: map.merge(
+  (
+    "on-color": getCssVar("color-primary"),
+    "off-color": getCssVar("border-color"),
+  ),
+  $switch
+);
+
+// side
+$side: () !default;
+$side: map.merge(
+  (
+    'bg-color': getCssVar('bg-color'),
+    'padding-primary': var(#{getCssVarName('dialog', 'padding-primary')}, 20px),
+    'bar-wrapper-height': 20px,
+    'bar-width': 35px,
+    'bar-height': 5px
+  ),
+  $side
+);
+
+// overlay
+$overlay-color: () !default;
+$overlay-color: map.merge(
+  (
+    '': rgba(0, 0, 0, 0.8),
+    'light': rgba(0, 0, 0, 0.7),
+    'lighter': rgba(0, 0, 0, 0.5),
+    'transparent': rgba(0, 0, 0, 0),
+  ),
+  $overlay-color
 );

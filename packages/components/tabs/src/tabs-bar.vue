@@ -10,7 +10,8 @@
 <script lang="ts">
 import { defineComponent, ref, watch, inject, computed, reactive } from "vue";
 
-import { cssName, isUndefined, guid, throwError } from "aries-ui/libs";
+import { useCss} from "../../../libs/hooks";
+import { isUndefined, guid, throwError } from "../../../libs/utils";
 import { tabsBarProps } from "./tabs-bar";
 import { TabsProvide } from "./types";
 
@@ -19,7 +20,7 @@ export default defineComponent({
   props: tabsBarProps,
   setup(props, { emit }) {
     const dividerKey = ref(0);
-    const cnBar = cssName("tabs-bar");
+    const cnBar = useCss("tabs-bar");
     //inject
     const rootTabs = inject<TabsProvide>("rootTabs") as TabsProvide;
     if (!rootTabs)

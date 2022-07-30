@@ -2,7 +2,8 @@ import { ref, defineComponent, readonly, h, provide, ExtractPropTypes, reactive,
 import type { VNode } from "vue"
 import { TabsProvide } from "./types";
 import { _tabsProps } from "./props"
-import { cssName, isUndefined, guid, throwError } from "aries-ui/libs";
+import { useCss } from "../../../libs/hooks";
+import { isUndefined, guid, throwError } from "../../../libs/utils";
 import { onClickOutside } from "@vueuse/core";
 import tabsBar from "./tabs-bar.vue"
 const COMPONENT_NAME = "AriTabs";
@@ -37,7 +38,7 @@ export default defineComponent({
 
     setup(props, { emit, slots }) {
         //定义样式的根名称
-        const cn = cssName("tabs");
+        const cn = useCss("tabs");
         //定义了类型为HTMLUListElement的ref对象
         const tabs = ref<HTMLUListElement>()
         //定义activeIndex 用于确定当前活动菜单项
@@ -75,7 +76,7 @@ export default defineComponent({
             }
             else {
                 if (usefulSlots.length > 0) {
-                    usefulSlots.map((item,index) => {
+                    usefulSlots.map((item, index) => {
                         if (item.props?.index === activeIndex.value) {
                             setBarLeft(activeIndex.value)
                         }

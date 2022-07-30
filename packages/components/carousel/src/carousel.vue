@@ -27,7 +27,7 @@
             @mouseleave="buttonLeave"
             @click.stop="arrowClick(activeIndex - 1)"
           >
-            <ari-icon name="aries icon-arrow-left"></ari-icon>
+            <ari-icon icon-name="aries icon-arrow-left"></ari-icon>
           </button>
         </transition>
         <transition
@@ -44,7 +44,7 @@
             @mouseleave="buttonLeave"
             @click.stop="arrowClick(activeIndex + 1)"
           >
-            <ari-icon name="aries icon-arrow-right"></ari-icon>
+            <ari-icon icon-name="aries icon-arrow-right"></ari-icon>
           </button>
         </transition>
         <slot></slot>
@@ -82,7 +82,7 @@
 </template>
 
 <script lang="ts">
-import { cssName } from "aries-ui/libs";
+import { useCss } from "../../../libs/hooks";
 import {
   defineComponent,
   onMounted,
@@ -98,7 +98,7 @@ import { AriScroll } from "../../scroll";
 import { AriIcon } from "../../icon";
 import { carouselProps, carouselProvideKey } from "./carousel";
 import { CarouselItemContext, CarouselProvide } from "./type";
-import { debugWarn } from "aries-ui/libs";
+import { debugWarn } from "../../../libs/utils";
 import { useResizeObserver } from "@vueuse/core";
 
 const COMPONENT_NAME = "AriCarousel";
@@ -110,8 +110,8 @@ export default defineComponent({
   props: carouselProps,
   setup(props, { emit, slots }) {
     /*--- 通用变量 --- */
-    const cn = cssName("carousel");
-    const cnIndicators = cssName("carousel-indicators");
+    const cn = useCss("carousel");
+    const cnIndicators = useCss("carousel-indicators");
 
     /*--- refs --- */
     const activeIndex = ref(-1);
@@ -236,7 +236,7 @@ export default defineComponent({
     );
 
     const resizeObserver = shallowRef<ReturnType<typeof useResizeObserver>>();
-    // lifecycle
+    /*--- lifecycle ---  */
     onMounted(async () => {
       resizeObserver.value = useResizeObserver(root.value, () => {
         resetItem();
@@ -247,7 +247,7 @@ export default defineComponent({
       startTimer();
     });
 
-    // provide
+    /*--- provide ---  */
     provide<CarouselProvide>(carouselProvideKey, {
       root,
       props: props,

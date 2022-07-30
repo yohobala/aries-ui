@@ -1,0 +1,29 @@
+@use "sass:map";
+
+@use "mixins/var" as *;
+@use "common/var.scss" as *;
+@use "mixins/mixins" as *;
+//通用
+:root {
+    @include set-component-css-var("font-size", $font-size);
+    @include set-component-css-var("index", $z-index);
+    @include set-component-css-var("windows", $windows);
+    @include set-css-var-value("leaflet-direction", "rotate(0deg)");
+    @include set-component-css-var("transition-duration", $transition-duration);
+    @include set-component-css-var("border-radius", $border-radius);
+}
+//亮色
+:root {
+    
+    @include set-css-var-value("color-white", $color-white);
+    @include set-css-var-value("color-black", $color-black);
+    @each $type in (primary, success, warning, danger, error, info) {
+        @include set-css-color-type($colors, $type);
+    }
+    @include set-component-css-var("bg-color", $bg-color);
+    @include set-component-css-var("border-color", $border-color);
+    @include set-component-css-var("box-shadow", $box-shadow);
+    @include set-component-css-var("text-color", $text-color);
+    @include set-component-css-var("side", $side);
+    @include set-component-css-var("overlay-color", $overlay-color);
+}

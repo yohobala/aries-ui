@@ -1,0 +1,14 @@
+{
+  "name": "aries-ui/plus",
+  "version": "0.0.5",
+  "description": "all plus are settled here",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "peerDependencies": {
+    "vue": "^3.2.25"
+  },
+  "types": "index.d.ts",
+  "sideEffects": false
+}

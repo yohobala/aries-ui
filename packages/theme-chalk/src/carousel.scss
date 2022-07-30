@@ -3,7 +3,9 @@
 @use "common/var" as *;
 @use "mixins/var" as *;
 @use "mixins/utils" as *;
+
 @include b(carousel) {
+    @include set-component-css-var("carousel", $carousel);
     position: relative;
     width: 100%;
     height: 200px;

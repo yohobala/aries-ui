@@ -1,6 +1,6 @@
 import {App} from 'vue'
 import toast from "./src/toast.vue"
-import  {componentInstall}    from "aries-ui/libs"
+import  {componentInstall}    from "../../libs/utils"
 
 
 

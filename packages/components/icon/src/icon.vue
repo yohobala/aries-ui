@@ -1,6 +1,6 @@
 <template>
   <i
-    :class="[cn.b(), name, iconClass]"
+    :class="[iconName,cn.b(), iconClass]"
     :style="style"
     v-bind="$attrs"
   >
@@ -13,8 +13,8 @@ import { computed, toRefs, onMounted, ref, defineComponent } from "vue";
 import type { CSSProperties } from "vue";
 
 import { iconProps, iconEmits } from "./icon";
-import { cssName,isUndefined,addUnit } from "aries-ui/libs";
-
+import { useCss } from "../../../libs/hooks";
+import { isUndefined,addUnit } from "../../../libs/utils";
 const COMPONENT_NAME = 'AriIcon'
 
 export default defineComponent({
@@ -24,7 +24,7 @@ export default defineComponent({
 
   setup(props, { emit }) {
     //设置样式的根名称
-    const cn = cssName("icon");
+    const cn = useCss("icon");
     //得到默认尺寸
     const { size } = toRefs(props);
     const { color } = toRefs(props);
@@ -33,7 +33,7 @@ export default defineComponent({
       if (!size.value && !color.value && !iconStyle.value) return {};
 
       let re = {
-        fontSize: isUndefined(props.size) ? undefined : addUnit(props.size),
+        "fontSize": isUndefined(props.size) ? undefined : addUnit(props.size),
         "--color": props.color,
       };
       if (!iconStyle.value) {
@@ -49,5 +49,3 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss" scoped src='./font/iconfont.css'>
-</style>

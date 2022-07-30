@@ -1,7 +1,7 @@
 import {App} from 'vue'
 import tabs from "./src/tabs"
 import tabsItem from "./src/tabs-item.vue"
-import  {componentInstall}    from "aries-ui/libs"
+import  {componentInstall}    from "../../libs/utils"
 
 export const AriTabs = componentInstall(tabs,{
     tabsItem

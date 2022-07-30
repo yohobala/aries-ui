@@ -1,0 +1,156 @@
+@use "sass:map";
+@use "mixins/mixins" as *;
+@use "common/var" as *;
+@use "mixins/var" as *;
+@use "mixins/utils" as *;
+
+$directions: rtl, ltr, ttb, btt;
+
+@include b(side) {
+    background-color: getCssVar("side", "bg-color");
+
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-shadow: getCssVar("box-shadow", "dark");
+    overflow: hidden;
+    transition: all getCssVar("transition-duration");
+
+    @each $direction in $directions {
+        .#{$direction} {
+            transform: translate(0, 0);
+        }
+    }
+    &.ltr,
+    &.rtl {
+        top: 0;
+        bottom: 0;
+    }
+
+    &.ttb,
+    &.btt {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    &.ltr {
+        left: 0;
+        border-bottom-right-radius: getCssVar("border-radius", "base");
+    }
+
+    &.rtl {
+        right: 0;
+    }
+
+    &.ttb {
+        top: 0;
+    }
+
+    &.btt {
+        bottom: 0;
+    }
+
+    @include when(move) {
+        transition: none;
+    }
+
+    @include e(scroll) {
+        width: 100%;
+        height: 100%;
+    }
+
+    @include e(bar-wrapper) {
+        @include flex-center;
+        position: absolute;
+
+        &.ltr,
+        &.rtl {
+            width: getCssVar("side", "bar-wrapper-height");
+            height: 100%;
+        }
+
+        &.ttb,
+        &.btt {
+            width: 100%;
+            height: getCssVar("side", "bar-wrapper-height");
+        }
+        &.ltr {
+            right: 0;
+        }
+        &.rtl {
+            left: 0;
+        }
+        &.ttb {
+            bottom: 0;
+        }
+        &.btt {
+            top: 0;
+        }
+        @include e(bar) {
+            background-color: getCssVar("color", "info", "light-3");
+            border-radius: getCssVar("border-radius", "ellipse");
+            &.ltr,
+            &.rtl {
+                width: getCssVar("side", "bar-height");
+                height: getCssVar("side", "bar-width");
+            }
+    
+            &.ttb,
+            &.btt {
+                width: getCssVar("side", "bar-width");
+                height: getCssVar("side", "bar-height") ;
+            }
+        }
+    }
+}
+
+@include b(side-fade) {
+    &-enter-active,
+    &-leave-active {
+        transition: all getCssVar("transition-duration");
+    }
+
+    &-enter-from,
+    &-enter-active,
+    &-enter-to,
+    &-leave-from,
+    &-leave-active,
+    &-leave-to {
+        overflow: hidden !important;
+    }
+
+    &-enter-from,
+    &-leave-to {
+        opacity: 0;
+    }
+
+    &-enter-to,
+    &-leave-from {
+        opacity: 1;
+    }
+
+    &-enter-from,
+    &-leave-to {
+        @each $direction in $directions {
+            .#{$direction} {
+                @if $direction == ltr {
+                    transform: translateX(-100%);
+                }
+
+                @if $direction == rtl {
+                    transform: translateX(100%);
+                }
+
+                @if $direction == ttb {
+                    transform: translateY(-100%);
+                }
+
+                @if $direction == btt {
+                    transform: translateY(100%);
+                }
+            }
+        }
+    }
+}

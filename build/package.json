@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "private": true,
+  "description": "Buildfor Aries-UI",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "gulp --require sucrase/register/ts -f gulpfile.ts",
+    "dev": "pnpm run stub",
+    "stub": "unbuild --stub"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "components-helper": "^2.0.0",
+    "esbuild": "^0.14.51",
+    "fs-extra": "^10.1.0",
+    "gulp": "^4.0.2",
+    "rollup": "^2.77.2",
+    "rollup-plugin-esbuild": "^4.9.1"
+  }
+}

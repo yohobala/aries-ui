@@ -21,7 +21,8 @@
   </div>
 </template>
 <script lang="ts">
-import { cssName, throwError } from "aries-ui/libs";
+import { useCss } from "../../../libs/hooks";
+import { throwError } from "../../../libs/utils";
 import {
   computed,
   defineComponent,
@@ -38,7 +39,7 @@ export default defineComponent({
   props: tabsItemProps,
   setup(props, { emit, slots }) {
     //定义样式的根名称
-    const cnTabsItem = cssName("tabs-item");
+    const cnTabsItem = useCss("tabs-item");
     //访问内部组件实例
     const instance = getCurrentInstance()!;
     //inject

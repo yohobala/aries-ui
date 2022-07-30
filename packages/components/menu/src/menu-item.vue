@@ -11,7 +11,8 @@
 </template>
 <script lang="ts">
 import { computed, toRefs, onMounted, ref,inject,defineComponent, getCurrentInstance } from "vue";
-import { cssName, isUndefined,throwError} from "aries-ui/libs";
+import { useCss } from "../../../libs/hooks";
+import { isUndefined,throwError} from "../../../libs/utils";
 import {menuItemProps} from "./menu-item"
 import {MenuProvide} from "./types"
 
@@ -21,7 +22,7 @@ export default defineComponent({
   props: menuItemProps,
 
   setup(props, { emit }) {
-    const cnMentItem = cssName("menu-item");
+    const cnMentItem = useCss("menu-item");
 
     //访问内部组件实例
     const instance = getCurrentInstance()!

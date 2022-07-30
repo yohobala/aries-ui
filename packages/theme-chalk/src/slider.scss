@@ -1,0 +1,167 @@
+@use "sass:map";
+@use "mixins/mixins" as *;
+@use "common/var" as *;
+@use "mixins/var" as *;
+@use "mixins/utils" as *;
+
+$slider-height: () !default;
+$slider-height: map.merge(
+  (
+    "large": 40px,
+    "default": 32px,
+    "small": 24px,
+  ),
+  $slider-height
+);
+
+@include b(slider) {
+  @include set-component-css-var("slider", $slider);
+}
+
+@include b(slider) {
+  width: 100%;
+  height: map.get($slider-height, "default");
+  display: flex;
+  align-items: center;
+
+  @include e(container) {
+    flex: 1;
+    height: getCssVar("slider-height");
+    background-color: getCssVar("slider-runway-bg-color");
+    border-radius: getCssVar("slider-border-radius");
+    position: relative;
+    cursor: pointer;
+
+    @include when(disabled) {
+      cursor: default;
+
+      .#{$namespace}-slider__bar {
+        background-color: getCssVar("slider-disabled-color");
+      }
+
+      .#{$namespace}-slider-button__button {
+        border-color: getCssVar("slider-disabled-color");
+      }
+
+      .#{$namespace}-slider-button {
+        &:hover,
+        &.hover {
+          cursor: not-allowed;
+        }
+
+        &.dragging {
+          cursor: not-allowed;
+        }
+      }
+
+      .#{$namespace}-slider-button__button {
+        &:hover,
+        &.hover,
+        &.dragging {
+          transform: scale(1);
+        }
+
+        &:hover,
+        &.hover {
+          cursor: not-allowed;
+        }
+
+        &.dragging {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+  @include e(bar) {
+    height: getCssVar("slider-height");
+    background-color: getCssVar("slider-main-bg-color");
+    border-top-left-radius: getCssVar("slider-border-radius");
+    border-bottom-left-radius: getCssVar("slider-border-radius");
+    position: absolute;
+  }
+
+  @include e(stop) {
+    position: absolute;
+    height: getCssVar("slider-height");
+    width: getCssVar("slider-height");
+    border-radius: getCssVar("border-radius-circle");
+    background-color: getCssVar("slider-stop-bg-color");
+    transform: translateX(-50%);
+  }
+
+  @include e(marks) {
+    top: 0;
+    left: 12px;
+    width: 18px;
+    height: 100%;
+
+    @include e(marks-text) {
+      position: absolute;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: getCssVar("color-info");
+      margin-top: 15px;
+    }
+  }
+
+  @include b(slider-button) {
+    $hoverBackgroundColor : getCssVar("slider-main-bg-color");
+    height: getCssVar("slider-button-wrapper-size");
+    width: getCssVar("slider-button-wrapper-size");
+    position: absolute;
+    z-index: 1;
+    top: getCssVar("slider-button-wrapper-offset");
+    transition: getCssVar("transition-duration");
+    transform: translateX(-50%);
+    background-color: transparent;
+    border-radius: 50%;
+    text-align: center;
+    user-select: none;
+    line-height: normal;
+    outline: none;
+    
+    @include utils-vertical-center;
+
+    &:hover,
+    &.hover {
+      background-color: rgba($color: #00a6ff, $alpha: 0.2);
+      cursor: grab;
+    }
+
+    &.dragging {
+      cursor: grabbing;
+      transition: none
+    }
+
+    @include e(button) {
+      display: inline-block;
+      width: getCssVar("slider-button-size");
+      height: getCssVar("slider-button-size");
+      vertical-align: middle;
+      // border: solid 2px getCssVar("slider-main-bg-color");
+      background-color: getCssVar("slider-main-bg-color");
+      border-radius: 50%;
+      box-sizing: border-box;
+      transition: getCssVar("transition-duration");
+      user-select: none;
+
+      @include box-shadow-half(0px,6px);
+      
+      &:hover,
+      &.hover,
+      &.dragging {
+        transform: scale(1.5);
+      }
+  
+      &:hover,
+      &.hover {
+        cursor: grab;
+      }
+  
+      &.dragging {
+        cursor: grabbing;
+      }
+
+    }
+  }
+}

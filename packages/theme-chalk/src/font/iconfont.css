@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "aries"; /* Project id 3512157 */
+  src: url('./iconfont.eot'); /* IE9 */
+  src: url('./iconfont.eot') format('embedded-opentype'), /* IE6-IE8 */
+       url('./iconfont.woff2') format('woff2'),
+       url('./iconfont.woff') format('woff'),
+       url('./iconfont.ttf') format('truetype'),
+       url('./iconfont.svg') format('svg');
+}
+
+.aries {
+  font-family: "aries" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tuceng:before {
+  content: "\e70b";
+}
+
+.icon-qianbi:before {
+  content: "\e61b";
+}
+
+.icon-location-fill:before {
+  content: "\e627";
+}
+
+.icon-location:before {
+  content: "\e628";
+}
+
+.icon-arrow-left:before {
+  content: "\e659";
+}
+
+.icon-arrow-right:before {
+  content: "\e65b";
+}
+

@@ -18,10 +18,10 @@ import {
   ref,
   CSSProperties,
 } from "vue";
-import { throwError } from "aries-ui/libs";
+import { throwError, debugWarn, isUndefined  } from "../../../libs/utils";
 import { carouselProvideKey } from "./carousel";
 import { CarouselItemContext, CarouselProvide } from "./type";
-import { cssName, debugWarn, isUndefined } from "aries-ui/libs";
+import { useCss } from "../../../libs/hooks";
 import { carouselItemProps } from "./carousel-item";
 
 const COMPONENT_NAME = "AriCarouselItem";
@@ -30,7 +30,7 @@ export default defineComponent({
   props: carouselItemProps,
   setup(props, { emit, slots }) {
     /*--- 通用变量 --- */
-    const cn = cssName("carousel-item");
+    const cn = useCss("carousel-item");
     const CARD_SCALE = 0.83;
 
     /*--- ref --- */
@@ -42,13 +42,13 @@ export default defineComponent({
     const ready = ref(false);
     const animating = ref(false);
     const itemRef = ref<HTMLDivElement>();
-    const showcaseInterval = ref(props.showcaseInterval)
+    const showcaseInterval = ref(props.showcaseInterval);
     /*--- inject --- */
     const rootCarousel = inject<CarouselProvide>(carouselProvideKey)!;
     if (!rootCarousel)
       throwError(
         COMPONENT_NAME,
-        `不能inject"rootTabs",请添加${COMPONENT_NAME}`
+        `不能inject${carouselProvideKey},请添加${COMPONENT_NAME}`
       );
 
     /*--- computed --- */
@@ -61,13 +61,13 @@ export default defineComponent({
       //scale(1)
       const _scale = `scale(${unref(scale)})`;
       const transform = [_translate, _scale].join(" ");
-      let padding = ""
-      if(isShowcase.value){
-         padding = `0px ${showcaseInterval.value}px`
+      let padding = "";
+      if (isShowcase.value) {
+        padding = `0px ${showcaseInterval.value}px`;
       }
       return {
         transform,
-        padding
+        padding,
       };
     });
     /*--- method ---  */
@@ -84,10 +84,15 @@ export default defineComponent({
       if (!_isCardType && !isUndefined(oldIndex)) {
         animating.value = isActive || index === oldIndex;
       }
-      if(_isShowcase){
-        animating.value = true
+      if (_isShowcase) {
+        animating.value = true;
       }
-      if (!_isCardType && !_isShowcase && itemsLength > 2 && rootCarousel.loop) {
+      if (
+        !_isCardType &&
+        !_isShowcase &&
+        itemsLength > 2 &&
+        rootCarousel.loop
+      ) {
         index = processIndex(index, activeIndex, itemsLength);
       }
 
@@ -175,7 +180,8 @@ export default defineComponent({
         return ((3 + CARD_SCALE) * parentWidth) / 4;
       }
     };
-    // lifecycle
+
+    /*--- lifecycle ---  */
     onMounted(() => {
       rootCarousel.addItem(<CarouselItemContext>{
         props,
@@ -194,7 +200,7 @@ export default defineComponent({
       isCardType,
       itemStyle,
       itemRef,
-      isShowcase
+      isShowcase,
     };
   },
 });

@@ -1,7 +1,6 @@
-import {App} from 'vue'
 import menu from './src/menu'
 import menuItem from "./src/menu-item.vue"
-import  {componentInstall}    from "aries-ui/libs"
+import  {componentInstall}    from "../../libs/utils"
 
 export const AriMenu =  componentInstall(menu,{
     menuItem

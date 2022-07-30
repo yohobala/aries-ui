@@ -1,5 +1,38 @@
-@mixin flex-center{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin utils-vertical-center {
+  $selector: &;
+
+  @at-root {
+    #{$selector}::after {
+      display: inline-block;
+      content: "";
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+@mixin box-shadow-half($box-shadow-y: 2px,$box-shadow-range:10px) {
+  $selector: &;
+  transform-style: preserve-3d;
+  @at-root {
+    #{$selector}::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      transform: translateZ(-10px);
+      background-color: transparent;
+      width: 80%;
+      height: 80%;
+      box-shadow: 0px $box-shadow-y $box-shadow-range rgb(0, 0, 0);
+      border-radius: 50%;
+    }
+  }
 }

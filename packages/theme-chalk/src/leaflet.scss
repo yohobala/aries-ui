@@ -1,0 +1,100 @@
+@use "sass:map";
+@use "mixins/mixins" as *;
+@use "mixins/var" as *;
+@use "common/var" as *;
+@use "mixins/utils" as *;
+
+$map-z-index: 0;
+$leaflet-button-size: () !default;
+$leaflet-button-size: map.merge(
+    (
+        "": 30px,
+        "large": 45px,
+    ),
+    $leaflet-button-size
+);
+
+$leaflet-button: () !default;
+$leaflet-button: map.merge(
+    (
+        "bg": getCssVar("color-white"),
+        "large": 45px,
+    ),
+    $leaflet-button
+);
+
+$leaflet-icon-size: () !default;
+$leaflet-icon-size: map.merge(
+    (
+        "": 20px,
+        "large": 28px,
+    ),
+    $leaflet-icon-size
+);
+
+@include b(leaflet) {
+    @include set-component-css-var("leaflet", $leaflet);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+
+    .loactionIcon {
+        font-size: 24px;
+        color: #0f80ff;
+        transform: getCssVar("leaflet-rotate");
+        transition-duration: 0.5s;
+    }
+}
+
+@include b(leaflet-button) {
+    z-index: calc(#{$map-z-index} + #{getCssVar("index", "normal")});
+    position: absolute;
+    @include e(icon) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        font-size: map.get($leaflet-icon-size,'');
+        font-weight: 100;
+        color: getCssVar("color", "info", "dark-4");
+    }
+    @include e(container) {
+        background-color: map.get($leaflet-button, "bg");
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        border-radius: getCssVar("border-radius", "circle");
+    }
+    @include e(animation) {
+        border-radius: getCssVar("border-radius", "circle");
+    }
+    @include box-shadow-half;
+}
+
+@include b(leaflet-location) {
+    @include set-component-css-var("leaflet", $leaflet);
+    transform: getCssVar("leaflet-rotate");
+    bottom: getCssVar("windows", "bottom");
+    right: getCssVar("windows", "right");
+    height: map.get($leaflet-button-size, "large");
+    width: map.get($leaflet-button-size, "large");
+    transition: all getCssVar("transition-duration");
+    @include flex-center;
+
+    @include e(icon){
+        font-size: map.get($leaflet-icon-size,'large');
+    }
+
+}
+
+@include b(leaflet-layerControl) {
+    @include e(button) {
+        height: map.get($leaflet-button-size, "");
+        width: map.get($leaflet-button-size, "");
+        top: getCssVar("windows", "top");
+        right: getCssVar("windows", "right");
+    }
+}
+

@@ -1,20 +1,6 @@
+import { DIRECTION} from "../../../constants"
 import { ExtractPropTypes } from "vue"
-
-export type scrollResult = {
-    initY: number,
-    translateY: number,
-    initX: number,
-    translateX: number,
-    moveX: number,
-    moveY: number,
-    direction: string,
-    e: object | null,
-}
-
-export type point = {
-    x: number,
-    y: number
-}
+import { ScrollResult } from "./type"
 
 export const scrollProps = {
     scorll: {
@@ -24,7 +10,7 @@ export const scrollProps = {
     //下拉的fps，一秒多少帧
     downFps: {
         type: Number,
-        default: 40
+        default: 240
     },
     result: {
         type: Object,
@@ -38,7 +24,7 @@ export const scrollProps = {
                 moveY: 0,
                 direction: "",
                 e: null,
-            } as scrollResult
+            } as ScrollResult
         }
     },
     stop: {
@@ -47,14 +33,5 @@ export const scrollProps = {
     }
 } as const
 
-export type ScrollProps = ExtractPropTypes<typeof scrollProps>
 
-export const scrollEmits = {
-    start: (result: scrollResult) => true,
-    move: (result: scrollResult) => true,
-    end: (result: scrollResult) => true,
-    toLeft: (e: any) => true,
-    toRight: (e: any) => true,
-    toUp: (e: any) => true,
-    toDown: (e: any) => true,
-}
+export const scrollEmits = [DIRECTION.left,DIRECTION.right,DIRECTION.up,DIRECTION.down,"start",'move','end']

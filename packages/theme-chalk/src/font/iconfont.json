@@ -1,0 +1,51 @@
+{
+  "id": "3512157",
+  "name": "ariesUI",
+  "font_family": "aries",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2683503",
+      "name": "图层",
+      "font_class": "tuceng",
+      "unicode": "e70b",
+      "unicode_decimal": 59147
+    },
+    {
+      "icon_id": "11641866",
+      "name": "铅笔",
+      "font_class": "qianbi",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "26339009",
+      "name": "dingwei-fill",
+      "font_class": "location-fill",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "26339010",
+      "name": "dingwei",
+      "font_class": "location",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "8777510",
+      "name": "arrow_left",
+      "font_class": "arrow-left",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "8777512",
+      "name": "arrow_right",
+      "font_class": "arrow-right",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    }
+  ]
+}

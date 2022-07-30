@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch, toRefs } from "vue";
-import { cssName } from "aries-ui/libs";
+import { useCss } from "../../../libs/hooks";
 import { toastProps } from "./toast";
 
 const COMPONENT_NAME = "AriToast";
@@ -41,7 +41,7 @@ export default defineComponent({
   props: toastProps,
   setup(props) {
     /*--- 通用变量 --- */
-    const cn = cssName("toast");
+    const cn = useCss("toast");
 
     /*--- refs --- */
     const { autoClose } = toRefs(props);
