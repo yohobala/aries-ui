@@ -1,14 +1,13 @@
 import { computed } from 'vue'
 import type { CSSProperties, ComputedRef } from 'vue'
 import { debugWarn } from '../../../libs/utils'
-import { SliderInitData, SliderProps, Stops } from './type'
 
 export const useStops = (
-    props: SliderProps,
-    initData: SliderInitData,
+    props: Ari.Slider.SliderProps,
+    initData: Ari.Slider.SliderInitData,
     minValue: ComputedRef<number>,
     maxValue: ComputedRef<number>
-): Stops => {
+): Ari.Slider.Stops => {
     const stops = computed(() => {
         if (!props.showStops || props.min > props.max) return []
         if (props.step === 0) {

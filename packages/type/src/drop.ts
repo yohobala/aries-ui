@@ -1,6 +1,7 @@
+
+import { dropEmits,dropItemProps,dropProps } from "aries-ui/index"
 import { ExtractPropTypes,Ref } from "vue"
-import { dropProps, dropEmits } from "./drop"
-import { dropItemProps } from "./drop-item"
+
 
 export namespace Drop {
     export type DropProps = ExtractPropTypes<typeof dropProps>

@@ -1,5 +1,5 @@
 import { ExtractPropTypes,Ref } from "vue"
-import { scrollEmits, scrollProps } from "./scroll"
+import { scrollEmits, scrollProps } from "aries-ui"
 
 export namespace Scroll {
     export type ScrollProps = ExtractPropTypes<typeof scrollProps>

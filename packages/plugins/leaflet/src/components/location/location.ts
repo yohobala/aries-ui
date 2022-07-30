@@ -1,6 +1,5 @@
 // import {bulidStyleProps} from "../../../libs/utils"
 import { PropType } from "vue"
-import { LocationInf } from "../../type"
 import { _locationProps } from "../../_props"
 import { buttonProps } from "../button/button"
 
@@ -27,7 +26,7 @@ export const locationProps = {
 }
 
 export const locationEmits = {
-    click: (e: LocationInf) => {
+    click: (e: Ari.Leaflet.LocationInf) => {
         return true
     },
 }

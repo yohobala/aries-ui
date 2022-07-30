@@ -7,7 +7,7 @@ export const themeRoot = resolve(pkgRoot, 'theme-chalk')
 export const hookRoot = resolve(pkgRoot, 'hooks')
 export const localeRoot = resolve(pkgRoot, 'locale')
 export const directiveRoot = resolve(pkgRoot, 'directives')
-export const ariRoot = resolve(pkgRoot, 'init')
+export const ariRoot = resolve(pkgRoot, 'aries-ui')
 export const utilRoot = resolve(pkgRoot, 'utils')
 export const buildRoot = resolve(projectRoot, 'build')
 

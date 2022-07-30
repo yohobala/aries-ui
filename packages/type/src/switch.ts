@@ -1,5 +1,6 @@
+import { switchProps } from "aries-ui";
 import { ExtractPropTypes } from "vue";
-import { switchProps } from "./switch";
+
 
 
 export namespace Switch {

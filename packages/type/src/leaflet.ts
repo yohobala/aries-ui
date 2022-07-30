@@ -1,8 +1,7 @@
+import { leafletEmits,leafletProps,locationProps,locationEmits } from "aries-ui/index";
 import { type } from "os";
 import { ExtractPropTypes, Ref } from "vue";
-import { leafletProps, leafletEmits } from "./leaflet";
-import { locationEmits, locationProps } from "./components/location/leaflet-location"
-import { iteratee } from "lodash-unified";
+
 export namespace Leaflet {
     export type LeafletProps = ExtractPropTypes<typeof leafletProps>
     export type LeafletEmits = typeof leafletEmits

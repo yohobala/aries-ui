@@ -8,7 +8,6 @@ import {
     isSymbol,
 } from '@vue/shared'
 import { isBoolean, isNumber } from '@vueuse/core'
-import { EventPoint } from '../type'
 
 
 export function addUnit(value: string | number, defaultUnit = 'px') {
@@ -21,7 +20,7 @@ export function addUnit(value: string | number, defaultUnit = 'px') {
 }
 
 /* 根据点击滑动事件获取第一个手指的坐标 */
-export const getPoint = (e: MouseEvent | TouchEvent): EventPoint => {
+export const getPoint = (e: MouseEvent | TouchEvent): Ari.Utils.EventPoint => {
     if ( (e as TouchEvent).touches && (e as TouchEvent).touches[0]) {
         return {
             x: (e as TouchEvent).touches[0].pageX,

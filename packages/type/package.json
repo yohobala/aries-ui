@@ -1,0 +1,23 @@
+{
+  "name": "@aries-ui/type",
+  "version": "0.1.0",
+  "description": "aries-ui component type.",
+  "keywords": [
+    "vue-components",
+    "aries-ui",
+    "theme-chalk",
+    "theme-light"
+  ],
+  "license": "MIT",
+  "main": "Ari.d.ts",
+  "unpkg": "Ari.d.ts",
+  "jsdelivr": "Ari.d.ts",
+  "style": "Ari.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "gulp --require sucrase/register/ts"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

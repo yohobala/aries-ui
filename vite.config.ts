@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     // 配置路径别名
     alias: {
-      'aries-ui': path.resolve(__dirname, './packages'),
+      'aries-ui': path.resolve(__dirname, './packages/aries-ui'),
     },
   },
   test: {

@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useCss } from "../../../../../libs/hooks";
-import { controlProps } from "./leaflet-layerControl";
+import { controlProps } from "./layerControl";
 
 const COMPONENT_NAME = "AriLeafletLayerControl";
 export default defineComponent({

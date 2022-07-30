@@ -15,7 +15,7 @@ import { useCss } from "../../../../../libs/hooks";
 import { throwError } from "../../../../../libs/utils";
 import { defineComponent, inject, ref } from "vue";
 import { LeafletProvide, LocationInf } from "../../type";
-import { locationEmits, locationProps } from "./leaflet-location";
+import { locationEmits, locationProps } from "./location";
 
 const COMPONENT_NAME = "AriLeafletLocation";
 

@@ -1,9 +1,8 @@
 import { ref, reactive, Ref, provide, inject, watch, ComponentInternalInstance } from "vue"
-import { LocationInf, Geolocation } from "../type"
+import { LocationInf, Geolocation } from "../../../../type/src/leaflet"
 import { setProperty, throwError } from "../../../../libs/utils"
 import { leafletID } from "../leaflet"
 import L from "leaflet";
-import { LeafletLocationProps, LeafletMap, LeafletProps, LeafletProvide, LocationMethod } from "../type";
 import { leafletProvideKey } from "../../../../keys";
 
 export class geolocation<Geolocation> {
@@ -94,16 +93,16 @@ export class geolocation<Geolocation> {
 }
 
 export const useLocation = (
-    leafletProps: LeafletProps,
+    leafletProps: Ari.Leaflet.LeafletProps,
     slot: Readonly<ComponentInternalInstance['slots']>,
-    locationProps?: LeafletLocationProps,
+    locationProps?: Ari.Leaflet.LeafletLocationProps,
 ) => {
     //定位权限
     const permission: Geolocation = new geolocation();
     //位置信息
     const location: LocationInf = permission.location;
     //inject
-    const rootLeaflet = inject<LeafletProvide>(leafletProvideKey)!
+    const rootLeaflet = inject<Ari.Leaflet.LeafletProvide>(leafletProvideKey)!
     // if (!rootLeaflet) {
     //     throwError(
     //         "rootLeaflet",
@@ -111,7 +110,7 @@ export const useLocation = (
     //     );
     // }
 
-    const map: Ref<LeafletMap | null> = rootLeaflet?.map
+    const map: Ref<Ari.Leaflet.LeafletMap | null> = rootLeaflet?.map
 
     //定位点图片样式
     const locationIcon: Ref<L.DivIconOptions> = locationProps ? ref(locationProps.locationIcon) : ref(leafletProps.locationIcon)
@@ -142,16 +141,15 @@ export const useLocation = (
             }
         }
     }
-    const moveToLocation = (): LocationInf => {
+    const moveToLocation = (): Ari.Leaflet.LocationInf => {
         if(rootLeaflet){
             rootLeaflet.setCenter([location.lat, location.lng]);
-            return location;
         }
-
+        return location;
     };
 
 
-    const locationMethod: LocationMethod = {
+    const locationMethod: Ari.Leaflet.LocationMethod = {
         moveToLocation: moveToLocation,
         drawLocation: drawLoaction,
     };

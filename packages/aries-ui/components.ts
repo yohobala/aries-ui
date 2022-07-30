@@ -14,6 +14,22 @@ import ari_scroll from "../components/scroll"
 import ari_leaflet from "../plugins/leaflet/index"
 // import type { Plugin } from 'vue'
 
+export * from "../components/icon"
+export * from "../components/menu"
+export * from "../components/tabs"
+export * from "../components/carousel"
+export * from "../components/toast"
+export * from "../components/animation"
+export * from "../components/drop"
+export * from "../components/slider"
+export * from "../components/switch"
+export * from "../components/side"
+export * from "../components/overlay"
+export * from "../components/scroll"
+
+export * from "../plugins/leaflet/index"
+
+
 export default [
     ari_icon,
     ari_menu,
@@ -30,3 +46,4 @@ export default [
 
     ari_leaflet,
 ]
+

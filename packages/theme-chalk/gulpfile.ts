@@ -7,7 +7,7 @@ import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
 import rename from 'gulp-rename'
 import consola from 'consola'
-import { ariOutput } from '../../build/src'
+import { ariOutput, run, withTaskName } from '../../build/src'
 
 const distFolder = path.resolve(__dirname, 'dist')
 const distBundle = path.resolve(ariOutput, 'theme-chalk')
@@ -76,7 +76,9 @@ export function copyThemeChalkSource() {
 
 export const build = parallel(
   copyThemeChalkSource,
-  series(buildThemeChalk, copyfont, copyThemeChalkBundle)
+  series(
+    withTaskName('clean', () => run('rimraf dist')),
+    buildThemeChalk, copyfont, copyThemeChalkBundle)
 )
 
 export default build

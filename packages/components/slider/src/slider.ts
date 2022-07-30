@@ -1,6 +1,5 @@
 import { CHANGE_EVENT, INPUT_EVENT, UPDATE_MODEL_EVENT } from "../../../constants";
 import { PropType } from "vue";
-import { Marks } from "./type";
 
 export const silderProps = {
     modelValue: {
@@ -48,7 +47,7 @@ export const silderProps = {
         type: Number,
         default: 1,
     },
-    marks: Object as PropType<Marks>,
+    marks: Object as PropType<Ari.Slider.Marks>,
 }
 
 export const sliderEmits = [UPDATE_MODEL_EVENT, CHANGE_EVENT, INPUT_EVENT]

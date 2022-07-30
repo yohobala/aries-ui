@@ -1,5 +1,4 @@
 import { ComponentInternalInstance, ComputedRef, nextTick, ref, inject, computed, CSSProperties } from "vue";
-import { SliderButtonInitData, SliderButtonProps, SliderProvider } from "./type";
 import { EVENT_CODE, UPDATE_MODEL_EVENT } from "../../../constants"
 import { debounce } from 'lodash-unified'
 import { sliderProvideKey } from "../../../keys";
@@ -7,7 +6,7 @@ import { getPoint } from "../../../libs/utils";
 
 const { left, down, right, up, home, end, pageUp, pageDown } = EVENT_CODE
 const useTooltip = (
-    props: SliderButtonProps,
+    props: Ari.Slider.SliderButtonProps,
     formatTooltip: ComputedRef<(value: number) => number | string>,
     showTooltip: ComputedRef<boolean>
 ) => {
@@ -28,8 +27,8 @@ const useTooltip = (
 }
 
 export const useSliderButton = (
-    props: SliderButtonProps,
-    initData: SliderButtonInitData,
+    props: Ari.Slider.SliderButtonProps,
+    initData: Ari.Slider.SliderButtonInitData,
     emit: ComponentInternalInstance['emit']
 ) => {
     const {
@@ -43,7 +42,7 @@ export const useSliderButton = (
         resetSize,
         sliderSize,
         emitChange,
-    } = inject<SliderProvider>(sliderProvideKey)!
+    } = inject<Ari.Slider.SliderProvider>(sliderProvideKey)!
 
     const { tooltip, tooltipVisible, displayTooltip } =
         useTooltip(props, formatTooltip, showTooltip)

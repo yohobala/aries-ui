@@ -1,20 +1,19 @@
 import { ComponentInternalInstance, computed, CSSProperties, nextTick, shallowRef, Ref, ref } from "vue";
 import { getPoint } from "../../../libs/utils";
-import { SliderInitData, SliderProps, SliderButton, ButtonRefs } from "./type";
 import { CHANGE_EVENT, INPUT_EVENT, UPDATE_MODEL_EVENT } from "../../../constants";
 
 export const useSlides = (
-    props: SliderProps,
-    initData: SliderInitData,
+    props: Ari.Slider.SliderProps,
+    initData: Ari.Slider.SliderInitData,
     emit: ComponentInternalInstance['emit']
 ) => {
     const slider = shallowRef<HTMLElement>()
 
-    const firstButton = ref<SliderButton>()
+    const firstButton = ref<Ari.Slider.SliderButton>()
 
-    const secondButton = ref<SliderButton>()
+    const secondButton = ref<Ari.Slider.SliderButton>()
 
-    const buttonRefs: ButtonRefs = {
+    const buttonRefs: Ari.Slider.ButtonRefs = {
         firstButton,
         secondButton,
     }
@@ -68,7 +67,7 @@ export const useSlides = (
 
     const getButtonRefByPercent = (
         percent: number
-    ): Ref<SliderButton | undefined> => {
+    ): Ref<Ari.Slider.SliderButton | undefined> => {
         const targetValue = props.min + (percent * (props.max - props.min)) / 100
         if (!props.range) {
             return firstButton
@@ -91,7 +90,7 @@ export const useSlides = (
         return buttonRefs[buttonRefName]
     }
 
-    const setPosition = (percent: number): Ref<SliderButton | undefined> => {
+    const setPosition = (percent: number): Ref<Ari.Slider.SliderButton | undefined> => {
         const buttonRef = getButtonRefByPercent(percent)
         buttonRef.value!.setPosition(percent)
         return buttonRef
@@ -122,7 +121,7 @@ export const useSlides = (
         )
     }
       
-    const handleSliderPointerEvent = (event: MouseEvent | TouchEvent): Ref<SliderButton | undefined> | undefined => {
+    const handleSliderPointerEvent = (event: MouseEvent | TouchEvent): Ref<Ari.Slider.SliderButton | undefined> | undefined => {
         if (sliderDisabled.value || initData.dragging) return
         resetSize()
         let newPercent = 0

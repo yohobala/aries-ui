@@ -20,7 +20,7 @@ import {
 } from '../utils'
 import { target } from '../config'
 import { PKG_BRAND_NAME } from '../constants'
-import { version } from '../../../packages/init/version'
+import { version } from '../../../packages/aries-ui/version'
 import { AriesUIAlias } from '../plugins/aries-ui-alias'
 
 const banner = `/*! ${PKG_BRAND_NAME} v${version} */\n`

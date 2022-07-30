@@ -11,5 +11,5 @@ export default AriDrop
 
 export const AriDropItem = componentInstall(dropItem)
 
-
-export * from "./src/type"
+export * from "./src/drop"
+export * from "./src/drop-item"

@@ -17,8 +17,8 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "aries-ui/*": [
-        "packages/*"
+      "aries-ui*": [
+        "packages/aries-ui/*"
       ],
     }
   },

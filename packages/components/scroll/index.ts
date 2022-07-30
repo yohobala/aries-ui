@@ -7,4 +7,4 @@ export const AriScroll =  componentInstall(scroll)
 
 export default  AriScroll
 
-export * from "./src/type"
+export * from "./src/scroll"

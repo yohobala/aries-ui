@@ -8,4 +8,5 @@ export const AriSilder = componentInstall(slider,{
 
 export default AriSilder
 
-export * from "./src/type"
+export * from "./src/slider"
+export * from "./src/button"

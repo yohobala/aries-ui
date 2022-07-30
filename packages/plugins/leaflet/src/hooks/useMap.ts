@@ -3,17 +3,16 @@ import { throwError } from "../../../../libs/utils";
 import L from "leaflet";
 import { ComponentInternalInstance, inject, onMounted, ref, Ref, watch } from "vue";
 import { leafletID } from "../leaflet";
-import { LeafletEmits, LeafletMap, LeafletProps, LeafletProvide, MapMethod } from "../type";
 
 
 
 export const useMap = (
-    leafletProps: LeafletProps,
+    leafletProps: Ari.Leaflet.LeafletProps,
     slot: Readonly<ComponentInternalInstance['slots']>,
     emit: ComponentInternalInstance['emit']
 ) => {
     //inject
-    const rootLeaflet = inject<LeafletProvide>(leafletProvideKey)!
+    const rootLeaflet = inject<Ari.Leaflet.LeafletProvide>(leafletProvideKey)!
     // if (!rootLeaflet) {
     //     throwError(
     //         "useMap",
@@ -25,7 +24,7 @@ export const useMap = (
     const mapCenter: Ref<L.LatLngExpression> = ref(leafletProps.center);
     const zoom = ref(leafletProps.zoom);
     //地图
-    const map: Ref<LeafletMap | null> = ref(null);
+    const map: Ref<Ari.Leaflet.LeafletMap | null> = ref(null);
 
     const { layerGroups } = rootLeaflet
 
@@ -120,7 +119,7 @@ export const useMap = (
     })
 
 
-    const mapMethod: MapMethod = {
+    const mapMethod: Ari.Leaflet.MapMethod = {
         setCenter: setCenter,
         setZoom: setZoom,
     };

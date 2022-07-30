@@ -1,6 +1,5 @@
 import { DIRECTION} from "../../../constants"
 import { ExtractPropTypes } from "vue"
-import { ScrollResult } from "./type"
 
 export const scrollProps = {
     scorll: {
@@ -24,7 +23,7 @@ export const scrollProps = {
                 moveY: 0,
                 direction: "",
                 e: null,
-            } as ScrollResult
+            } as Ari.Scroll.ScrollResult
         }
     },
     stop: {

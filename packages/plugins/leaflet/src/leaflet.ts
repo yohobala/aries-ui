@@ -1,12 +1,11 @@
 import { Prop, PropType } from "vue"
 import { guid } from "../../../libs/utils";
-import { EmitsDraw, LeafletLayer, PmDrawStart } from "./type";
 import { _locationProps } from "./_props";
 import { buttonProps } from "./components/button/button";
 
 export const leafletProps = {
     layers: {
-        type: Array as PropType<LeafletLayer[]>,
+        type: Array as PropType<Ari.Leaflet.LeafletLayer[]>,
         default: function () {
             return []
         }

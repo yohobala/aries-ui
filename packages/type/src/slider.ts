@@ -1,7 +1,6 @@
+import { silderProps,sliderButtonProps } from "aries-ui/index";
 import { type } from "os";
 import { ComponentPublicInstance, ComputedRef, CSSProperties, ExtractPropTypes, Ref } from "vue";
-import { sliderButtonProps } from "./button";
-import { silderProps } from "./slider";
 
 export namespace Slider {
   export type SliderProps = ExtractPropTypes<typeof silderProps>
