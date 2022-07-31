@@ -51,7 +51,7 @@ export default series(
         run('pnpm run -C packages/type build')
       ),
       withTaskName('patchVersion', () =>
-        run('pnpm version -C packages/init patch')
+        run('pnpm version -C packages/aries-ui patch')
       ),
       cpoyPackage
     )
